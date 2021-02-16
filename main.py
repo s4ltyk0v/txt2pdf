@@ -4,7 +4,13 @@ from dotenv import load_dotenv
 from fpdf import FPDF
 
 
-def txt2pdf(file_in, file_out, logo):
+load_dotenv()
+LOGO = os.getenv('LOGO')
+FILE_IN = os.getenv('FILE_IN')
+FILE_OUT = os.getenv('FILE_OUT')
+
+
+def txt2pdf(logo, file_in, file_out):
     pdf = FPDF()
     pdf.set_left_margin(25)
     pdf.add_page()
@@ -27,5 +33,4 @@ def txt2pdf(file_in, file_out, logo):
 
 if __name__ == '__main__':
 
-    load_dotenv()
-    txt2pdf(os.getenv('FILE_IN'), os.getenv('FILE_OUT'), os.getenv('LOGO'))
+    txt2pdf(LOGO, FILE_IN, FILE_OUT)
