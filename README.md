@@ -17,7 +17,7 @@ A step by step series of examples that tell you have to get a development env ru
 
 1. Copy repository files to local machine
 
-2. Rename file ".env.example:" to ".env" and edit this file (specify the correct file paths).
+2. Rename file ".env.example:" to ".env" and edit this file (specify the correct file paths, telegram token, chat_id).
 
 3. Install the required modules
 ```
