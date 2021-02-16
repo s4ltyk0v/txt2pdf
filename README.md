@@ -1,6 +1,7 @@
 # txt2pdf
 
-Program for converting a payroll calculation sheet from a text file to a pdf file.
+Program for converting a payroll calculation sheet from a text file to a pdf file and send to Telegram.
+
 
 ## Getting Started
 

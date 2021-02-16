@@ -1,13 +1,17 @@
 import os
 
+import telegram
 from dotenv import load_dotenv
 from fpdf import FPDF
-
 
 load_dotenv()
 LOGO = os.getenv('LOGO')
 FILE_IN = os.getenv('FILE_IN')
 FILE_OUT = os.getenv('FILE_OUT')
+
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
+CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
+BOT = telegram.Bot(token=TELEGRAM_TOKEN)
 
 
 def txt2pdf(logo, file_in, file_out):
@@ -31,6 +35,12 @@ def txt2pdf(logo, file_in, file_out):
     pdf.output(file_out)
 
 
+def send_payroll(file_out):
+    f = open(file_out, 'rb')
+    return BOT.send_document(chat_id=CHAT_ID, document=f, caption='Расчётный лист')
+
+
 if __name__ == '__main__':
 
     txt2pdf(LOGO, FILE_IN, FILE_OUT)
+    send_payroll(FILE_OUT)
