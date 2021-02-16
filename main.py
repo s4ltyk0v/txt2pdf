@@ -37,7 +37,7 @@ def txt2pdf(logo, file_in, file_out):
 
 def send_payroll(file_out):
     f = open(file_out, 'rb')
-    return BOT.send_document(chat_id=CHAT_ID, document=f, caption='Расчётный лист')
+    return BOT.send_document(CHAT_ID, document=f, caption='Расчётный лист')
 
 
 if __name__ == '__main__':
